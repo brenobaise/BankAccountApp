@@ -1,38 +1,48 @@
-# Desenvolvendo o Dio Bank
-desenvolvido por [Nathally Souza](https://github.com/nathyts)
+# Developing the Dio Bank
 
-#### Projeto desenvolvido com conceitos básicos de typescript
+Developed by [Nathally Souza](https://github.com/nathyts)
 
-### Tecnologias
-- Typescript
+#### Project developed using basic TypeScript concepts
 
-### Como rodar o projeto
+### Technologies
 
-1 - Clone o repositório
+- TypeScript
 
-2 - Instale as dependeências
-    
+### How to run the project
+
+1 - Clone the repository
+
+2 - Install dependencies
+
     npm install
 
-3 - Execute o projeto
+3 - Run the project
 
     npm run dev
 
-#### Desafios
-[ ] Implementar os métodos de depósito (deposit) e saque (withdraw) na classe DioAccount
-  - Os valores dos saldos devem ser alterados, de acordo com o valor informado para depósito
-  - Apenas contas com o status true e saldo (balance) maior que o valor solicitado podem fazer saques
+#### Challenges
 
-[ ] Implementar o método de empréstimo (getLoan) na classe CompanyAccount
-  - Os valores do saldos deve ser acrescidos, de acordo com o valor informado para empréstimo
-  - Apenas contas com o status true podem fazer empréstimo
+[ ] Implement the deposit and withdraw methods in the DioAccount class
 
-[ ] Criar um novo tipo de conta a partir da DioAccount
-  - Esta conta não deve receber novos atributos
-  - Esta conta terá um método de depósito, que acresce 10 a mais ao valor informado para depósito. (Ex: Um depósito de 100, será de 110 no final)
+- The account balance values must be updated according to the deposited amount
+- Only accounts with status `true` and a balance greater than the requested
+  amount can perform withdrawals
 
-[ ] Todos os atributos de qualquer conta devem ser privados
+[ ] Implement the getLoan method in the CompanyAccount class
 
-[ ] Os atributos name e accountNumber não podem ser alterados internamente ou externamente
+- The balance values must increase according to the loan amount
+- Only accounts with status `true` can request a loan
 
-[ ] Criar instancias para cada um dos tipos de conta no app.ts e executar os métodos possíveis.
+[ ] Create a new account type based on DioAccount
+
+- This account should not receive new attributes
+- This account must have a deposit method that adds an extra 10 to the deposited
+  value (Example: a deposit of 100 becomes 110)
+
+[ ] All attributes of any account must be private
+
+[ ] The attributes `name` and `accountNumber` cannot be modified either
+internally or externally
+
+[ ] Create instances for each account type in `app.ts` and execute the possible
+methods
