@@ -44,7 +44,7 @@ export abstract class DioAccount {
 
 
   canWithdraw = (amount: number): boolean => {
-    return amount < this.balance;
+    return amount <= this.balance;
   }
 
 
@@ -53,6 +53,6 @@ export abstract class DioAccount {
       return this.status
     }
 
-    throw new Error('Conta inválida')
+    throw new Error('Invalid Account')
   }
 }
