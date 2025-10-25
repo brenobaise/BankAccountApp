@@ -7,14 +7,15 @@ export class CompanyAccount extends DioAccount {
   }
 
   getLoan = (creditAmount: number): number => {
+    let currentBalance = this.getBalance();
     if (this.validateStatus()) {
       console.log("Loan acquired: " + creditAmount);
-      this.balance += creditAmount;
+      this.setBalance(currentBalance += creditAmount);
     } else {
       console.log("Loan denied: invalid account status");
     }
 
-    return this.balance;
+    return this.getBalance();
   }
 
 
