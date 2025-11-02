@@ -4,7 +4,7 @@ import { Footer } from "./Footer";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Flex direction='column' minH='100vh'>
+    <Flex direction='column' minH='100vh' bg='#9413dc' justifyContent='center'>
       <Box as='header'>
         <Header />
       </Box>

@@ -1,8 +1,16 @@
 import { login } from "../services/login";
 import { Input, Heading, VStack, Container } from "@chakra-ui/react";
 import { GeneralButton } from "./GeneralButton";
+import { useState } from "react";
 
 export const Card = () => {
+  const [email, setEmail] = useState("");
+
+  const logar = () => {
+    alert(email);
+  };
+
+  console.log("typed email: ", email);
   return (
     <>
       {/* Login Card */}
@@ -36,6 +44,8 @@ export const Card = () => {
               borderColor: "#9413dc",
               boxShadow: "0 0 0 1px #9413dc",
             }}
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
           />
           <Input
             placeholder='Password'
@@ -50,7 +60,7 @@ export const Card = () => {
               boxShadow: "0 0 0 1px #9413dc",
             }}
           />
-          <GeneralButton onClick={login}>Login</GeneralButton>
+          <GeneralButton onClick={() => login(email)}>Login</GeneralButton>
         </VStack>
       </Container>
     </>
