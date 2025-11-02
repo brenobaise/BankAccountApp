@@ -1,6 +1,9 @@
-export const login = (email: string): void => {
-  if (email.trim.length === 0) {
-    alert("Insert an email");
+import { api } from "./api";
+
+export const login = async (email: string): Promise<void> => {
+  const data: any = await api;
+  if (email !== data.email) {
+    return alert("Invalid Email");
   }
   alert(`Welcome ${email}`);
 };

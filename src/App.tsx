@@ -1,20 +1,21 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Account from "./pages/Account";
 import { Provider } from "./components/ui/provider";
-
-import { Card } from "./components/Card";
-import { useState } from "react";
 import { Layout } from "./components/Layout";
-import { Button, Heading } from "@chakra-ui/react";
-import { GeneralButton } from "./components/GeneralButton";
-function App() {
-  const [value, setValue] = useState(0);
-  const [anotherValue, setAnotherValue] = useState(0);
 
+function App() {
   return (
-    <Provider>
-      <Layout>
-        <Card />
-      </Layout>
-    </Provider>
+    <BrowserRouter>
+      <Provider>
+        <Layout>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/account' element={<Account />} />
+          </Routes>
+        </Layout>
+      </Provider>
+    </BrowserRouter>
   );
 }
 

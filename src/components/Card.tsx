@@ -4,13 +4,8 @@ import { GeneralButton } from "./GeneralButton";
 import { useState } from "react";
 
 export const Card = () => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState<string>("");
 
-  const logar = () => {
-    alert(email);
-  };
-
-  console.log("typed email: ", email);
   return (
     <>
       {/* Login Card */}
