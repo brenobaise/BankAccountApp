@@ -12,16 +12,20 @@ import {
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { api } from "../services/api";
+import { useParams, useNavigate } from "react-router-dom";
 
 interface IUserData {
   email: string;
   password: string;
   name: string;
   balance: number;
+  id: string;
 }
 const Account = () => {
   const [userdata, setUserData] = useState<null | IUserData>();
+  const navigate = useNavigate();
   const date = new Date();
+  const { id } = useParams();
 
   useEffect(() => {
     const getData = async () => {
@@ -32,8 +36,9 @@ const Account = () => {
     getData();
   }, []);
 
-  console.log(userdata);
-
+  if (userdata && id !== userdata.id) {
+    navigate("/");
+  }
   return (
     <>
       <Center>

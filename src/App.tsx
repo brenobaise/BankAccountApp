@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Account from "./pages/Account";
 import { Provider } from "./components/ui/provider";
 import { Layout } from "./components/Layout";
+import AccountInfo from "./pages/AccountInfo";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
         <Layout>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/account' element={<Account />} />
+            <Route path='/account/:id' element={<Account />} />
+            <Route path='/infoaccount' element={<AccountInfo />} />
           </Routes>
         </Layout>
       </Provider>
