@@ -68,11 +68,10 @@ function App() {
               }}
             />
             <Button
-              colorScheme='purple'
+              colorPalette='purple'
               size='lg'
-              w='full'
+              variant='solid'
               fontWeight='bold'
-              borderRadius='md'
               onClick={login}
             >
               Login
