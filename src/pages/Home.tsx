@@ -2,15 +2,15 @@ import { GeneralButton } from "../components/GeneralButton";
 import { login } from "../services/login";
 import { Heading, VStack, Input } from "@chakra-ui/react";
 import { Card } from "../components/Card";
-import { MouseEventHandler, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../components/AppContext";
-
+import { changeLocalStorage } from "../services/storage";
 
 const Home = () => {
   const [email, setEmail] = useState<string>("");
   const navigate = useNavigate();
-  const { setIsLoggedIn, isLoggedIn } = useContext(AppContext);
+  const { setIsLoggedIn } = useContext(AppContext);
 
   const validateUser = async (email: string) => {
     const loggedIn = await login(email);
@@ -19,9 +19,9 @@ const Home = () => {
       return alert("Email is not valid.");
     }
 
-
     setIsLoggedIn(true);
 
+    changeLocalStorage({ login: true });
 
     navigate(`/account/1`);
   };
