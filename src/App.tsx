@@ -4,17 +4,8 @@ import Account from "./pages/Account";
 import { Provider } from "./components/ui/provider";
 import { Layout } from "./components/Layout";
 import AccountInfo from "./pages/AccountInfo";
-import { createContext } from "react";
+import { AppContextProvider } from "./components/AppContext";
 
-interface IAppContext {
-  user: string;
-}
-
-export const AppContext = createContext({} as IAppContext);
-const AppContextProvider = ({ children }: any) => {
-  const user = "breno";
-  return <AppContext.Provider value={{ user }}>{children}</AppContext.Provider>;
-};
 function App() {
   return (
     <BrowserRouter>

@@ -3,7 +3,7 @@ import { Center, SimpleGrid, Spinner } from "@chakra-ui/react";
 import { useState, useEffect, useContext } from "react";
 import { api } from "../services/api";
 import { useParams, useNavigate } from "react-router-dom";
-import { AppContext } from "../App";
+import { AppContext } from "../components/AppContext";
 
 interface IUserData {
   email: string;
@@ -13,11 +13,13 @@ interface IUserData {
   id: string;
 }
 const Account = () => {
-  const context = useContext(AppContext);
   const [userdata, setUserData] = useState<null | IUserData>();
+  const { isLoggedIn } = useContext(AppContext);
   const navigate = useNavigate();
   const date = new Date();
   const { id } = useParams();
+
+  !isLoggedIn && navigate("/");
 
   useEffect(() => {
     const getData = async () => {
