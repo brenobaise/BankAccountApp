@@ -30,9 +30,6 @@ const Account = () => {
     getData();
   }, []);
 
-  if (userdata && id !== userdata.id) {
-    navigate("/");
-  }
   return (
     <>
       <Center>

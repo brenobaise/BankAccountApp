@@ -2,10 +2,29 @@ import { GeneralButton } from "../components/GeneralButton";
 import { login } from "../services/login";
 import { Heading, VStack, Input } from "@chakra-ui/react";
 import { Card } from "../components/Card";
-import { useState } from "react";
+import { MouseEventHandler, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "../components/AppContext";
+
 
 const Home = () => {
   const [email, setEmail] = useState<string>("");
+  const navigate = useNavigate();
+  const { setIsLoggedIn, isLoggedIn } = useContext(AppContext);
+
+  const validateUser = async (email: string) => {
+    const loggedIn = await login(email);
+
+    if (!loggedIn) {
+      return alert("Email is not valid.");
+    }
+
+
+    setIsLoggedIn(true);
+
+
+    navigate(`/account/1`);
+  };
   return (
     <>
       <Card>
@@ -48,7 +67,9 @@ const Home = () => {
               boxShadow: "0 0 0 1px #9413dc",
             }}
           />
-          <GeneralButton onClick={() => login(email)}>Login</GeneralButton>
+          <GeneralButton onClick={() => validateUser(email)}>
+            Login
+          </GeneralButton>
         </VStack>
       </Card>
     </>
