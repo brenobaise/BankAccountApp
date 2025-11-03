@@ -1,18 +1,9 @@
 import CardInfo from "../components/CardInfo";
-import {
-  Box,
-  Center,
-  Heading,
-  HStack,
-  SimpleGrid,
-  Skeleton,
-  SkeletonCircle,
-  Spinner,
-  Stack,
-} from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { Center, SimpleGrid, Spinner } from "@chakra-ui/react";
+import { useState, useEffect, useContext } from "react";
 import { api } from "../services/api";
 import { useParams, useNavigate } from "react-router-dom";
+import { AppContext } from "../App";
 
 interface IUserData {
   email: string;
@@ -22,6 +13,7 @@ interface IUserData {
   id: string;
 }
 const Account = () => {
+  const context = useContext(AppContext);
   const [userdata, setUserData] = useState<null | IUserData>();
   const navigate = useNavigate();
   const date = new Date();
